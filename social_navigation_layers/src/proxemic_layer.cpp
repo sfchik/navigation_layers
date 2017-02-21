@@ -129,9 +129,9 @@ namespace social_navigation_layers
                   double diff = angles::shortest_angular_distance(angle, ma);
                   double a;
                   if(fabs(diff)<M_PI/2)
-                      a = gaussian(x,y,cx,cy,amplitude_,covar_*factor,covar_,angle);
+                      a = gaussian(x,y,cx,cy,amplitude_*person.velocity.z,covar_*factor,covar_,angle);
                   else
-                      a = gaussian(x,y,cx,cy,amplitude_,covar_,       covar_,0);
+                      a = gaussian(x,y,cx,cy,amplitude_*person.velocity.z,covar_,       covar_,0);
 
                   if(a < cutoff_)
                     continue;
